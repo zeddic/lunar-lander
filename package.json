@@ -1,0 +1,26 @@
+{
+  "name": "lunar_lander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeddic/lunar-lander.git"
+  },
+  "keywords": [],
+  "author": "Scott Bailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeddic/lunar-lander/issues"
+  },
+  "homepage": "https://github.com/zeddic/lunar-lander#readme",
+  "devDependencies": {
+    "ts-loader": "^2.2.2",
+    "typescript": "^2.4.1",
+    "webpack": "^3.1.0"
+  },
+  "scripts": {
+    "build": "webpack -p",
+    "watch": "webpack --watch"
+  }
+}
