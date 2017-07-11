@@ -15,6 +15,8 @@
   },
   "homepage": "https://github.com/zeddic/lunar-lander#readme",
   "devDependencies": {
+    "expose-loader": "^0.7.3",
+    "phaser": "^2.6.2",
     "ts-loader": "^2.2.2",
     "typescript": "^2.4.1",
     "webpack": "^3.1.0"
