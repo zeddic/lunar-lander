@@ -9,9 +9,8 @@ const assetsPath = path.join(__dirname, 'assets');
 module.exports = {
     entry: './src/game.ts',
     output: {
-        path: path.resolve(__dirname, 'dist'),  
+        path: path.resolve(__dirname, 'dist/'),  
         filename: 'bundle.js',
-        publicPath: '/dist/'
     },
     resolve: {
         extensions: ['.ts', '.js'],
@@ -33,7 +32,8 @@ module.exports = {
             ignored: /node_modules/
         }
     },
-    devtool: "cheap-eval-source-map",
+    // Enable for Source Maps.
+    // devtool: "cheap-eval-source-map",
     module: {
         rules: [
             { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' },

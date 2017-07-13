@@ -16,4 +16,5 @@ function create () {
   ship.anchor.setTo(0.5, 0.5);
 }
 
-console.log('Hello Lunar Lander!: ' + blah);
+console.log('Hello Lunar Lander - this is amazing!: ' + blah);
+
