@@ -4,7 +4,10 @@ import 'phaser';
 import {Asset, loadAssetsInto} from './assets';
 
 const game = new Phaser.Game(800, 600, Phaser.AUTO, '', {preload, create, update});
-let ship : Phaser.Sprite; 
+let ship : Phaser.Sprite;
+
+let poly : Phaser.Polygon;
+let graphics: Phaser.Graphics;
 
 function preload () {
   loadAssetsInto(game);
@@ -17,6 +20,24 @@ function create () {
   game.physics.enable(ship, Phaser.Physics.ARCADE);
   game.physics.arcade.gravity.y = 50;
 
+
+  let points = [
+    0, 0,
+    game.world.width, 0,
+    game.world.width, 50,
+    0, 50,
+  ];
+
+  poly = new Phaser.Polygon(points);
+  graphics = game.add.graphics(0, game.world.height - 50);
+  graphics.beginFill(0xFFFF00);
+  graphics.drawPolygon(poly.points);
+  graphics.endFill();
+
+  game.physics.enable(graphics, Phaser.Physics.ARCADE);
+  graphics.body.immovable = true;
+  graphics.body.allowGravity = false;
+
   ship.body.maxVelocity.setTo(250, 250);
   
   game.input.keyboard.addKeyCapture([
@@ -27,6 +48,9 @@ function create () {
 }
 
 function update() {
+
+  game.physics.arcade.collide(ship, graphics);
+
   if (ship.x > game.width) ship.x = 0;
   if (ship.x < 0) ship.x = game.width;
   if (ship.y > game.height) ship.y = 0;
